@@ -5,8 +5,10 @@ const route = useRoute()
 <template>
   <div h-100vh>
     <h1>Nuxt Routing set up successfully!</h1>
-    <p>Current route: {{ route.path }}</p>
-    <a href="https://nuxt.com/docs/getting-started/routing" target="_blank">Learn more about Nuxt Routing</a>
-    <SetupButton></SetupButton>
+    <NuxtLink to="/about">
+      <SetupButton>
+        Go To About
+      </SetupButton>
+    </NuxtLink>
   </div>
 </template>

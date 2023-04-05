@@ -1,3 +1,5 @@
 <template>
-  <TButton>Good!!222</TButton>
+  <TButton>
+    <slot />
+  </TButton>
 </template>
