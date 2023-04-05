@@ -6,7 +6,7 @@
     <h1>Nuxt Routing set up successfully!</h1>
     <NuxtLink to="/about">
       <SetupButton>
-        Go To About!
+        Go To About!!
       </SetupButton>
     </NuxtLink>
   </div>
