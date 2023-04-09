@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model notebook_notes {
+  id          Int      @id @default(autoincrement()) @db.UnsignedInt
+  notebook_id Int      @default(0)
+  note_id     Int      @default(0)
+  created_at  DateTime @default(now()) @db.DateTime(0)
+  updated_at  DateTime @default(now()) @db.DateTime(0)
+}
+
+model notebooks {
+  id         Int      @default(autoincrement()) @db.UnsignedInt
+  uid        Int      @default(0) @db.UnsignedInt
+  name       String   @default("") @db.VarChar(64)
+  created_at DateTime @default(now()) @db.DateTime(0)
+  updated_at DateTime @default(now()) @db.DateTime(0)
+
+  @@id([id, uid])
+}
+
+model notes {
+  id         Int      @default(autoincrement()) @db.UnsignedInt
+  uid        Int      @default(0) @db.UnsignedInt
+  title      String   @default("") @db.VarChar(64)
+  content_md String   @db.LongText
+  state      Int      @db.TinyInt
+  created_at DateTime @default(now()) @db.DateTime(0)
+  updated_at DateTime @default(now()) @db.DateTime(0)
+
+  @@id([id, uid])
+}
+
+model users {
+  id         Int      @id @default(autoincrement()) @db.UnsignedInt
+  avatar     String   @default("") @db.VarChar(255)
+  nickname   String   @default("") @db.VarChar(32)
+  phone      String   @default("") @db.VarChar(32)
+  password   String   @default("") @db.VarChar(64)
+  created_at DateTime @default(now()) @db.DateTime(0)
+  updated_at DateTime @default(now()) @db.DateTime(0)
+}

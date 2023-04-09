@@ -5,6 +5,8 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     'nuxt-icon',
     '@vue-macros/nuxt',
+    '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt',
   ],
   build: {
     transpile: [/tdesign-vue-next\/es\/.*\.mjs/],
