@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { MessagePlugin } from 'tdesign-vue-next'
+
 const router = useRouter()
 function handleToUserAdmin10() {
   router.push({
@@ -15,11 +17,21 @@ function handleToAbout() {
     },
   })
 }
+
+function handleShowMessage() {
+  MessagePlugin.info('用户表示普通操作信息提示')
+}
 </script>
 
 <template>
   <div h-100vh>
     <h1>Nuxt Routing set up successfully!</h1>
+    <h2>Myplugin -> {{ $myPlugin("Cool!") }}</h2>
+    <TSpace>
+      <TButton @click="handleShowMessage">
+        Message
+      </TButton>
+    </TSpace>
     <TSpace>
       <NuxtLink to="/about">
         <SetupButton>

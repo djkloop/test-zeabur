@@ -2,6 +2,13 @@
 const router = useRouter()
 const route = useRoute()
 
+definePageMeta({
+  middleware: ['auth'],
+  title: '关于',
+  description: '关于页面',
+  keywords: '关于页面',
+})
+
 function handleToHome() {
   router.push('/')
 }
