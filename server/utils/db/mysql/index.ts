@@ -1,3 +1,5 @@
-import { PrismaClient } from '@prisma/client'
+import prisma, { PrismaClient } from '@prisma/client'
 
 export const prismaORM = new PrismaClient()
+
+export { prisma }

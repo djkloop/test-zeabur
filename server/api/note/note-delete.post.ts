@@ -15,9 +15,6 @@ export default defineEventHandler(async (event) => {
   // 校验数据
   const NoteBook = z.object({
     noteId: z.number({ required_error: '文章id不能为空' }),
-    title: z.string({ required_error: '文章标题不能为空' }),
-    content_md: z.string({ required_error: '文章内容不能为空' }),
-    state: z.number({ required_error: '文章状态不能为空' }),
   })
 
   try {
@@ -30,13 +27,7 @@ export default defineEventHandler(async (event) => {
 
   try {
     // 修改文章
-    const note = await prismaORM.notes.update({
-      data: {
-        title: body.title,
-        content_md: body.content_md,
-        state: body.state,
-        updated_at: new Date(),
-      },
+    await prismaORM.notes.delete({
       where: {
         id_uid: {
           id: body.noteId,
@@ -44,12 +35,12 @@ export default defineEventHandler(async (event) => {
         },
       },
     })
-    return responseJson(0, '修改文章成功', { ...note })
+    return responseJson(0, '删除文章成功')
   }
   catch (error) {
     if (error instanceof prisma.Prisma.PrismaClientKnownRequestError)
       return responseJson(1, '文章不存在！')
 
-    return responseJson(1, '修改文章失败')
+    return responseJson(1, '删除文章失败')
   }
 })

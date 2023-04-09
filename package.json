@@ -16,6 +16,7 @@
     "@types/jsonwebtoken": "^9.0.1",
     "@types/lodash-es": "^4.17.7",
     "@types/md5": "^2.3.2",
+    "@types/node": "^18.15.11",
     "@unocss/core": "^0.50.6",
     "@unocss/nuxt": "^0.50.6",
     "@unocss/reset": "^0.50.6",

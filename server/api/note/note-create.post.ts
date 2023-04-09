@@ -43,10 +43,10 @@ export default defineEventHandler(async (event) => {
           notebook_id: body.notebookId,
         },
       })
-      return responseJson(0, '创建文案成功')
+      return responseJson(0, '创建文章成功')
     }
     catch (error) {
-      return responseJson(1, '创建文案失败')
+      return responseJson(1, '创建文章失败')
     }
   }
   catch (error) {

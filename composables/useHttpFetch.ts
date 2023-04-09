@@ -10,7 +10,7 @@ export function useHttpFetch(url: string, options: IHttpFetchOptions) {
   // headers
   const _headers = {
     ...options.headers,
-    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    ...(token.value ? { Authorization: `Bearer ${token.value}` } : {}),
   }
   options.headers = _headers
 

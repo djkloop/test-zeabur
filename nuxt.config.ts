@@ -1,5 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  runtimeConfig: {
+    // 私钥
+    privateKey: process.env.PRIVATE_KEY,
+    privateId: process.env.PRIVATE_ID,
+  },
   modules: [
     'tdesign-vue-next/es/nuxt',
     '@unocss/nuxt',
